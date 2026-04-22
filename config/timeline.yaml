@@ -438,24 +438,6 @@ custom:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   periods:
 
-    period_0:
-      name: "0点推送"
-      start: "00:00"
-      end: "02:00"
-      push: true
-      analyze: true
-      ai_mode: "daily"
-      report_mode: "incremental"
-
-    period_4:
-      name: "4点推送"
-      start: "04:00"
-      end: "06:00"
-      push: true
-      analyze: true
-      ai_mode: "daily"
-      report_mode: "incremental"
-
     period_8:
       name: "8点推送"
       start: "08:00"
@@ -474,19 +456,19 @@ custom:
       ai_mode: "daily"
       report_mode: "incremental"
 
-    period_16:
-      name: "16点推送"
-      start: "16:00"
-      end: "18:00"
+    period_18:
+      name: "18点推送"
+      start: "18:00"
+      end: "20:00"
       push: true
       analyze: true
       ai_mode: "daily"
       report_mode: "incremental"
 
-    period_20:
-      name: "20点推送"
-      start: "20:00"
-      end: "22:00"
+    period_23:
+      name: "23点推送"
+      start: "23:00"
+      end: "01:00"
       push: true
       analyze: true
       ai_mode: "daily"
@@ -502,7 +484,7 @@ custom:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   day_plans:
     every_day:                       # 每天计划
-      periods: ["period_0", "period_4", "period_8", "period_12", "period_16", "period_20"]
+      periods: ["period_8", "period_12", "period_18", "period_23"]
 
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
