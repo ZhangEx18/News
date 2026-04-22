@@ -495,6 +495,15 @@ custom:
       ai_mode: "daily"
       report_mode: "incremental"
 
+    period_1:
+      name: "1点推送测试"
+      start: "01:00"
+      end: "03:00"
+      push: true
+      analyze: true
+      ai_mode: "daily"
+      report_mode: "incremental"
+
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   # 第 2 步：把积木块拼成日计划
@@ -505,7 +514,7 @@ custom:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   day_plans:
     every_day:                       # 每天计划
-      periods: ["period_8", "period_12", "period_18", "period_23"]
+      periods: ["period_8", "period_12", "period_18", "period_23", "period_1"]
 
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
