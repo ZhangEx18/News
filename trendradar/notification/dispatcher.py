@@ -399,12 +399,11 @@ class NotificationDispatcher:
         standalone_data: Optional[Dict] = None,
     ) -> bool:
         """发送到飞书（多账号，支持热榜+RSS合并+AI分析+独立展示区）"""
-        # 先发送新闻内容（不含AI分析）
-        rd, ri, rn, _, sd = self._apply_display_regions(
+        rd, ri, rn, ai, sd = self._apply_display_regions(
             report_data, display_regions, rss_items, rss_new_items, ai_analysis, standalone_data
         )
 
-        news_result = self._send_to_multi_accounts(
+        return self._send_to_multi_accounts(
             channel_name="飞书",
             config_value=self.config["FEISHU_WEBHOOK_URL"],
             send_func=lambda url, account_label: send_to_feishu(
@@ -421,41 +420,11 @@ class NotificationDispatcher:
                 get_time_func=self.get_time_func,
                 rss_items=ri,
                 rss_new_items=rn,
-                ai_analysis=None,  # 不含AI分析
+                ai_analysis=ai,
                 display_regions=display_regions or {},
                 standalone_data=sd,
             ),
         )
-
-        # 如果有AI分析，再发一条独立的消息
-        if ai_analysis and display_regions.get("AI_ANALYSIS", True):
-            # 构造只有AI分析的"report_data"
-            ai_only_report = {"stats": [], "new_titles": []}
-            ai_result = self._send_to_multi_accounts(
-                channel_name="飞书",
-                config_value=self.config["FEISHU_WEBHOOK_URL"],
-                send_func=lambda url, account_label: send_to_feishu(
-                    webhook_url=url,
-                    report_data=ai_only_report,
-                    report_type=report_type,
-                    update_info=update_info,
-                    proxy_url=proxy_url,
-                    mode=mode,
-                    account_label=account_label,
-                    batch_size=self.config.get("FEISHU_BATCH_SIZE", 29000),
-                    batch_interval=self.config.get("BATCH_SEND_INTERVAL", 1.0),
-                    split_content_func=self.split_content_func,
-                    get_time_func=self.get_time_func,
-                    rss_items=None,
-                    rss_new_items=None,
-                    ai_analysis=ai_analysis,  # 只有AI分析
-                    display_regions=display_regions or {},
-                    standalone_data=None,
-                ),
-            )
-            return news_result and ai_result
-
-        return news_result
 
     def _send_dingtalk(
         self,
