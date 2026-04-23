@@ -107,42 +107,57 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
+    # ===============================================================
+    # 主流媒体
+    # ===============================================================
     - id: "hacker-news"
       name: "Hacker News"
       url: "https://hnrss.org/frontpage"
 
+    - id: "bbc-world"
+      name: "BBC World"
+      url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+
+    - id: "bbc-tech"
+      name: "BBC Technology"
+      url: "https://feeds.bbci.co.uk/news/technology/rss.xml"
+
+    - id: "ap-news"
+      name: "AP News"
+      url: "https://apnews.com/rss"
+
+    # ===============================================================
+    # 科技 / AI
+    # ===============================================================
+    - id: "techcrunch"
+      name: "TechCrunch"
+      url: "https://techcrunch.com/feed/"
+
+    - id: "verge"
+      name: "The Verge"
+      url: "https://www.theverge.com/rss/index.xml"
+
+    # ===============================================================
+    # Reddit (热门话题)
+    # ===============================================================
+    - id: "reddit-worldnews"
+      name: "Reddit r/worldnews"
+      url: "https://www.reddit.com/r/worldnews/.rss"
+
+    # ===============================================================
+    # 商业 / 财经
+    # ===============================================================
+    - id: "yahoo-finance"
+      name: "Yahoo Finance"
+      url: "https://finance.yahoo.com/news/rssindex"
+
+    # ===============================================================
+    # 中文 (默认禁用，按需开启)
+    # ===============================================================
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
-      enabled: false                  # 禁用
-      # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
-     
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
-
-    - id: "36kr"
-      name: "36氪"
-      url: "https://36kr.com/feed"
-
-    - id: "huxiu"
-      name: "虎嗅"
-      url: "https://www.huxiu.com/rss/"
-
-    - id: "zhihu-rss"
-      name: "知乎"
-      url: "https://www.zhihu.com/rss"
-
-    - id: "xinwenlianbo"
-      name: "新闻联播文字稿"
-      url: "https://cn.govopendata.com/xinwenlianbo/"
-
-    # 自定义源示例
-    # - id: "custom-feed"
-    #   name: "自定义源"
-    #   url: "https://example.com/feed.xml"
-    #   enabled: false
-    #   max_age_days: 0               # 示例：禁用过滤，推送所有文章
+      enabled: false
 
 
 # ===============================================================
