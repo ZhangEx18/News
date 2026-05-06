@@ -408,6 +408,15 @@ custom:
       push: true
 
   periods:
+    test_push:
+      name: "测试推送"
+      start: "00:00"
+      end: "02:00"
+      push: true
+      analyze: true
+      ai_mode: "daily"
+      report_mode: "daily"
+
     morning_summary:
       name: "早间总结"
       start: "09:00"
@@ -428,7 +437,7 @@ custom:
 
   day_plans:
     every_day:
-      periods: ["morning_summary", "evening_summary"]
+      periods: ["test_push", "morning_summary", "evening_summary"]
 
   week_map:
     1: "every_day"
