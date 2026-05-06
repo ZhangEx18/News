@@ -35,7 +35,7 @@ on:
     #   "15 * * * *"     → 每小时第15分钟 / minute 15 every hour
     #   "30 0-14 * * *"  → 北京时间 8:00-22:00 每小时第30分钟 / Beijing 8am-10pm
     #
-    - cron: "0 0,5,10,15 * * *"
+    - cron: "33 * * * *"
 
   workflow_dispatch:
 
@@ -58,6 +58,20 @@ jobs:
         with:
           fetch-depth: 1
           clean: true
+
+      - name: Set up Python
+        if: success()
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        if: success()
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install dependencies
+        if: success()
+        run: uv sync --frozen --no-dev
 
       - name: Verify required files
         if: success()
@@ -102,3 +116,4 @@ jobs:
           S3_REGION: ${{ secrets.S3_REGION }}
           GITHUB_ACTIONS: true
         run: uv run python -m trendradar
+
