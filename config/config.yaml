@@ -120,10 +120,6 @@ rss:
       name: "BBC Technology"
       url: "https://feeds.bbci.co.uk/news/technology/rss.xml"
 
-    - id: "ap-news"
-      name: "AP News"
-      url: "https://apnews.com/rss"
-
     # ===============================================================
     # 科技 / AI
     # ===============================================================
